@@ -5,20 +5,31 @@ class Doctor
 {
     public:
         Doctor (void);
-        Doctor (std::string tname, std::string tnumber, std::string temail);
         std::string getName(void);
         std::string getPhoneNumber(void);
         std::string getEmail(void);
         void setName(std::string tname);
         void setPhoneNumber(std::string tnumber);
         void setEmail(std::string temail);
-    private:
         std::string Name;
         std::string phonenumber;
         std::string email;
+        Doctor Register(void);
+        void deRegister(Doctor *doc);
 };
 
-class HospitalDoctor : Doctor
+Doctor Doctor::Register(void)
+{
+    Doctor newDoctor;
+    return newDoctor;
+}
+
+void Doctor::deRegister(Doctor *doc)
+{
+    delete doc;
+}
+
+class HospitalDoctor : public Doctor
 {
     public:
         std::string getStaffNumber(void);
@@ -26,12 +37,11 @@ class HospitalDoctor : Doctor
 
         std::string getPagerNumber(void);
         void setPagerNumber(std::string tnumber);
-    private:
         std::string staffnumber;
         std::string pagernumber;
 };
 
-class General_Practitioner : Doctor
+class General_Practitioner : public Doctor
 {
     public:
         std::string getPractice(void);
@@ -39,7 +49,6 @@ class General_Practitioner : Doctor
 
         void setPractice (std::string tpractice);
         void setAddress (std::string  taddress);
-    private:
         std::string Practice;
         std::string Address;
 };
@@ -93,13 +102,6 @@ Doctor::Doctor (void)
     phonenumber = "";
 }
 
-Doctor::Doctor (std::string tname, std::string tnumber, std::string temail)
-{
-    email = temail;
-    Name = tname;
-    phonenumber = tnumber;
-}
-
 std::string Doctor::getEmail(void)
 {
     return email;
@@ -127,13 +129,6 @@ void Doctor::setEmail(std::string temail)
     email = temail;
 }
 
-
-std::string getStaffNumber(void);
-void setStaffNumber(std::string tnumber);
-
-std::string getPagerNumber(void);
-void setPagerNumber(std::string tnumber);
-
 int main(void)
 {
     std::cout << "--DOCTOR--" << std::endl;
@@ -144,6 +139,16 @@ int main(void)
     std::cout << "Dr Essa's Name is: " << DrEssa.getName() << std::endl;
     std::cout << "Dr Essa's Email is: " << DrEssa.getEmail() << std::endl;
     std::cout << "Dr Essa's Number is: " << DrEssa.getPhoneNumber() << std::endl;
+
+    std::cout << "--HOSPITAL DOCTOR--" << std::endl;
+    HospitalDoctor DrEssaTA;
+    DrEssaTA.setName("Dr. Essa's Ta");
+    DrEssaTA.setStaffNumber("123456789");
+    std::cout << "Dr. Essa's TA's Name is " << DrEssaTA.getName();
+    std::cout << std::endl;
+    std::cout << "And his Staff Phone number is " << DrEssaTA.getStaffNumber();
+    std::cout << std::endl;
+
 
     return 0;
 }
