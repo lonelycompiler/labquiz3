@@ -149,7 +149,7 @@ int main(void)
     std::cout << "And his Staff Phone number is " << DrEssaTA.getStaffNumber();
     std::cout << std::endl;
 
-    std::cout << "--HOSPITAL DOCTOR--" << std::endl;
+    std::cout << "--GENERAL PRACTITIONER--" << std::endl;
     General_Practitioner DrEssaTATA;
     DrEssaTATA.setEmail("123456789@erandoemail.org");
     DrEssaTATA.setAddress("1234 memory lane");
