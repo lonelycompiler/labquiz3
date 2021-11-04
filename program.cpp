@@ -149,6 +149,14 @@ int main(void)
     std::cout << "And his Staff Phone number is " << DrEssaTA.getStaffNumber();
     std::cout << std::endl;
 
+    std::cout << "--HOSPITAL DOCTOR--" << std::endl;
+    General_Practitioner DrEssaTATA;
+    DrEssaTATA.setEmail("123456789@erandoemail.org");
+    DrEssaTATA.setAddress("1234 memory lane");
+    std::cout << "Dr. Essa's Ta's TA's email is " << DrEssaTATA.getEmail();
+    std::cout << std::endl;
+    std::cout << "And his Address is " << DrEssaTATA.getAddress();
+    std::cout << std::endl;
 
     return 0;
 }
